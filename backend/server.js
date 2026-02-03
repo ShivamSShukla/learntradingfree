@@ -1,4 +1,6 @@
 const express = require('express');
+const path = require('path');
+const fs = require('fs');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const bcrypt = require('bcryptjs');
@@ -288,6 +290,15 @@ app.get('/api/user', verifyToken, async (req, res) => {
     res.status(500).json({ message: 'Failed to fetch user', error: error.message });
   }
 });
+
+const clientDistPath = path.join(__dirname, '..', 'frontend', 'dist');
+if (fs.existsSync(clientDistPath)) {
+  app.use(express.static(clientDistPath));
+
+  app.get('*', (req, res) => {
+    res.sendFile(path.join(clientDistPath, 'index.html'));
+  });
+}
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
