@@ -1,0 +1,12 @@
+{
+  "name": "trading-terminal",
+  "version": "1.0.0",
+  "description": "Free paper trading platform for learning Indian stock market",
+  "scripts": {
+    "install:all": "npm install && cd frontend && npm install && cd ../backend && npm install",
+    "dev:frontend": "cd frontend && npm run dev",
+    "dev:backend": "cd backend && npm run dev",
+    "build:frontend": "cd frontend && npm run build",
+    "build:android": "cd frontend && npm run build && cd .. && npx cap sync && npx cap open android"
+  }
+}
