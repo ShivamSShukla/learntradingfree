@@ -1,12 +1,37 @@
 {
-  "name": "trading-terminal",
+  "name": "trading-terminal-frontend",
+  "private": true,
   "version": "1.0.0",
-  "description": "Free paper trading platform for learning Indian stock market",
+  "type": "module",
   "scripts": {
-    "install:all": "npm install && cd frontend && npm install && cd ../backend && npm install",
-    "dev:frontend": "cd frontend && npm run dev",
-    "dev:backend": "cd backend && npm run dev",
-    "build:frontend": "cd frontend && npm run build",
-    "build:android": "cd frontend && npm run build && cd .. && npx cap sync && npx cap open android"
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "android:init": "npx cap add android",
+    "android:sync": "npm run build && npx cap sync",
+    "android:open": "npx cap open android"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.20.1",
+    "zustand": "^4.4.7",
+    "axios": "^1.6.2",
+    "lightweight-charts": "^4.1.3",
+    "lucide-react": "^0.294.0",
+    "@capacitor/core": "^5.5.1",
+    "@capacitor/android": "^5.5.1",
+    "@capacitor/app": "^5.0.6"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.43",
+    "@types/react-dom": "^18.2.17",
+    "@vitejs/plugin-react": "^4.2.1",
+    "typescript": "^5.2.2",
+    "vite": "^5.0.8",
+    "tailwindcss": "^3.3.6",
+    "autoprefixer": "^10.4.16",
+    "postcss": "^8.4.32",
+    "@capacitor/cli": "^5.5.1"
   }
 }
